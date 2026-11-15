@@ -29,7 +29,7 @@ export default function todoRouter() {
                 element: <Suspense fallback={<Loading/>}><TodoAdd/></Suspense>
             },
             {
-                path: "modify/:todo",
+                path: "modify/:tno",
                 element: <Suspense fallback={<Loading/>}><TodoModify/></Suspense>
             },
             {
