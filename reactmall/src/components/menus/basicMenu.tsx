@@ -16,6 +16,9 @@ function BasicMenu() {
                     </li>
                 </ul>
             </div>
+            <div className="w-1/5 bg-orange-300 flex items-center justify-center text-white text-xs">
+                Login
+            </div>
         </nav>
     )
 }
