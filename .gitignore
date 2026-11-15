@@ -1,0 +1,14 @@
+# IntelliJ
+.idea/
+*.iml
+out/
+# backend
+mallapi/.gradle/
+mallapi/build/
+mallapi/data/
+mallapi/upload/
+# frontend
+reactmall/node_modules/
+reactmall/dist/
+.env.local
+*.log
