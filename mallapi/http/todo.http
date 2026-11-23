@@ -1,0 +1,8 @@
+### 등록
+POST http://localhost:8080/api/todo/
+Content-Type: application/json
+
+{"title":"Sample Title","writer":"user1","dueDate":"2023-10-10"}
+
+### 과제 3번
+DELETE http://localhost:8080/api/todo/103
