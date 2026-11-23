@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Navigate } from "react-router";
-import { loadProducts, loadProduct } from "./productsLoader";
+import { loadProduct } from "./productsLoader";
 
 const ProductsIndex = lazy(() => import("../pages/products/indexPage"));
 const ProductsList = lazy(() => import("../pages/products/listPage"));
@@ -21,9 +21,7 @@ export default function productsRouter() {
 					<Suspense fallback={<Loading />}>
 						<ProductsList />
 					</Suspense>
-				),
-				loader: loadProducts,
-				HydrateFallback: () => <div>로딩 중...</div>
+				)
 			},
 			{
 				path: "add",
