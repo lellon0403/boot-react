@@ -1,0 +1,22 @@
+### 1. 로그인 (토큰 저장)
+POST http://localhost:8080/api/member/login
+Content-Type: application/x-www-form-urlencoded
+
+username=user2@aaa.com&password=1111
+
+> {% client.global.set("token", response.body.accessToken); %}
+
+### 2. 담기
+POST http://localhost:8080/api/cart/change
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"email":"user2@aaa.com","pno":1,"qty":2}
+
+### 3. 목록
+GET http://localhost:8080/api/cart/items
+Authorization: Bearer {{token}}
+
+### 4. 삭제
+DELETE http://localhost:8080/api/cart/1
+Authorization: Bearer {{token}}
