@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getList } from "../../api/todoApi";
 import useCustomMove from "../../hooks/useCustomMove";
+import useCustomLogin from "../../hooks/useCustomLogin";
 import PageComponent from "../common/pageComponent";
 
 const initState: PageResponseDTO<Todo> = {
@@ -19,11 +20,14 @@ const initState: PageResponseDTO<Todo> = {
 const ListComponent = () => {
 	const { page, size, moveToRead, moveToList, refresh }: UseCustomMoveReturn = useCustomMove();
 	const [serverData, setServerData] = useState(initState);
+	const { exceptionHandle } = useCustomLogin();
 
 	useEffect(() => {
-		getList({ page, size }).then((data) => {
-			setServerData(data);
-		});
+		getList({ page, size })
+			.then((data) => {
+				setServerData(data);
+			})
+			.catch((err) => exceptionHandle(err));
 	}, [page, size, refresh]);
 
 	return (

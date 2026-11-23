@@ -1,7 +1,7 @@
 import { useActionState, useState } from "react";
 import type { MouseEvent } from "react";
 import useCustomMove from "../../hooks/useCustomMove";
-import axios from "axios";
+import jwtAxios from "../../util/jwtUtil";
 import PendingModal from "../common/pendingModal";
 import ResultModal from "../common/resultModal";
 
@@ -24,11 +24,11 @@ const modifyDeleteAsyncAction = async (
 	const actionType = formData.get("actionType") as string;
 	try {
 		if (actionType === "modify") {
-			const res = await axios.put(`http://localhost:8080/api/products/${pno}`, formData);
+			const res = await jwtAxios.put(`http://localhost:8080/api/products/${pno}`, formData);
 			return { actionType, result: res.data.RESULT };
 		}
 		if (actionType === "delete") {
-			const res = await axios.delete(`http://localhost:8080/api/products/${pno}`);
+			const res = await jwtAxios.delete(`http://localhost:8080/api/products/${pno}`);
 			return { actionType, result: res.data.RESULT };
 		}
 		return { actionType, result: "", error: "작업을 선택해주세요." };

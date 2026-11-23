@@ -1,4 +1,4 @@
-import axios from "axios";
+import jwtAxios from "../../util/jwtUtil";
 import { useActionState } from "react";
 import useCustomMove from "../../hooks/useCustomMove";
 import PendingModal from "../common/pendingModal";
@@ -23,7 +23,7 @@ const addAsyncAction = async (
 		return { error: "Insert Product Name" };
 	}
 	try {
-		const res = await axios.post("http://localhost:8080/api/products/", formData);
+		const res = await jwtAxios.post("http://localhost:8080/api/products/", formData);
 		return { result: res.data.RESULT };
 	} catch {
 		return { error: "상품 등록에 실패했습니다. 입력 내용과 서버 연결을 확인해주세요." };

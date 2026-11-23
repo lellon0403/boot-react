@@ -1,0 +1,5 @@
+### 과제 7번
+POST http://localhost:8080/api/member/login
+Content-Type: application/x-www-form-urlencoded
+
+username=user1@aaa.com&password=1111
