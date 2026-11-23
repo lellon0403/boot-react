@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 const Loading = () => <div>Loading....</div>;
 const Login = lazy(() => import("../pages/member/loginPage"));
 const Logout = lazy(() => import("../pages/member/logoutPage"));
+const MemberModify = lazy(() => import("../pages/member/modifyPage"));
 
 export default function memberRouter() {
 	return {
@@ -21,6 +22,14 @@ export default function memberRouter() {
 				element: (
 					<Suspense fallback={<Loading />}>
 						<Logout />
+					</Suspense>
+				)
+			},
+			{
+				path: "modify",
+				element: (
+					<Suspense fallback={<Loading />}>
+						<MemberModify />
 					</Suspense>
 				)
 			}
